@@ -18,10 +18,20 @@
 #AWS lambda
 #AWS IAM users
 
+set -x
+
+echo "print list of s3 buckets"
+
 aws s3 ls
+
+echo "print list of ec2 instaces"
 
 aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
 
+echo "print list of lamda function"
+
 aws lambda list-functions
+
+echo "print list of IAM users"
 
 aws iam list-users
